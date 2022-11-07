@@ -23,9 +23,9 @@ include(cmake/discord.cmake)
 include(cmake/wintun.cmake)
 include(cmake/wxWidgets.cmake)
 include(cmake/CMakeRC.cmake)
-include(cmake/MemoryModule.cmake)
 
 if (WIN32)
+	include(cmake/MemoryModule.cmake)
 	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
 
