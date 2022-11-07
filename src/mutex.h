@@ -1,12 +1,9 @@
 #pragma once
-#include <mutex>
-#define WIN32_LEAN_AND_MEAN
-#include <Windows.h>
-#undef WIN32_LEAN_AND_MEAN
+#include<pthread.h>
 
 namespace util {
     class FastMutex {
-        CRITICAL_SECTION crit;
+        pthread_mutex_t crit;
     public:
         FastMutex();
         FastMutex(const FastMutex&) = delete;
