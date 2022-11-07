@@ -1,6 +1,8 @@
+#include <netinet/in.h>
 #include <stdexcept>
 #include <string>
 #include <stdio.h>
+#include <arpa/inet.h>
 
 #include "cidr.h"
 

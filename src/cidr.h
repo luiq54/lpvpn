@@ -1,7 +1,10 @@
 #pragma once
 
 #include <stdint.h>
-#include <winsock2.h>
+// #include <winsock2.h>
+#include <string>
+#include <sys/socket.h>
+#include <netinet/in.h>
 
 namespace cidr {
 	struct CIDR {
