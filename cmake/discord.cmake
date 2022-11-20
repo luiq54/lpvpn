@@ -9,7 +9,8 @@ include(FetchContent)
 
 FetchContent_Declare(
 	DiscordGameSDK
-	URL https://dl-game-sdk.discordapp.net/2.5.6/discord_game_sdk.zip
+	URL https://dl-game-sdk.discordapp.net/3.2.1/discord_game_sdk.zip
+	# URL https://dl-game-sdk.discordapp.net/2.5.6/discord_game_sdk.zip
 )
 
 if (NOT DiscordGameSDK_SDKROOT)

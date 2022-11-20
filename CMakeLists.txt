@@ -6,6 +6,7 @@ message(STATUS "Platform: ${PLATFORM}")
 message(STATUS "Generator Platform: ${CMAKE_GENERATOR_PLATFORM}")
 
 set(DISCORD_APP_ID 801910914370240553)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON CACHE INTERNAL "")
 
 include(FetchContent)
 
@@ -20,11 +21,11 @@ if (NOT DEFINED BINARY_PLATFORM)
 endif()
 
 include(cmake/discord.cmake)
-include(cmake/wintun.cmake)
 include(cmake/wxWidgets.cmake)
 include(cmake/CMakeRC.cmake)
 
 if (WIN32)
+	include(cmake/wintun.cmake)
 	include(cmake/MemoryModule.cmake)
 	add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 endif()
@@ -51,9 +52,10 @@ if (WIN32)
 		LINK_FLAGS "/MANIFESTUAC:\"level='requireAdministrator' uiAccess='false'\" /SUBSYSTEM:WINDOWS"
 		MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>"
 	)
+	target_link_libraries(lpvpn PRIVATE wx::net wx::core wx::base lpvpn::rc Wintun DiscordGameSDK)
 endif()
 
-target_link_libraries(lpvpn PRIVATE wxmono lpvpn::rc Wintun DiscordGameSDK MemoryModule)
+target_link_libraries(lpvpn PRIVATE wx::net wx::core wx::base lpvpn::rc DiscordGameSDK)
 
 # copy LICENSE
 add_custom_command(

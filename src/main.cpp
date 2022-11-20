@@ -1,7 +1,7 @@
 // wxWidgets "Hello world" Program
 // For compilers that support precompilation, includes "wx/wx.h".
 
-#include <wx/wx.h>
+#include "wx/wx.h"
 
 #include "rc.h"
 #include "guidparse.h"

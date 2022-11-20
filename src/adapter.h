@@ -3,6 +3,7 @@
 #include <cassert>
 #include <span>
 #include <functional>
+#include <memory>
 
 namespace lpvpn::adapter {
 	struct Packet {

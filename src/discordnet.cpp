@@ -199,7 +199,7 @@ void DiscordNet::run(std::stop_token token)
 
 			discord::NetworkPeerId memberPeerId = std::stoull(memberPeerIdStr);
 			auto memberIP = cidr::parse(memberIPStr.c_str());
-			if (memberIP.addr.S_un.S_addr == 0)
+			if (memberIP.addr.s_addr == 0)
 				continue;
 			ipMapping.setPeer(memberPeerId, memberIP);
 		}
@@ -505,7 +505,7 @@ void DiscordNet::run(std::stop_token token)
 		// parse dstIP
 		struct in_addr dstIP;
 		memcpy(&dstIP, packet.data() + 16, 4);
-			
+
 		auto remotePeerId = ipMapping.getPeer(dstIP);
 		if (!remotePeerId.has_value())
 		{
